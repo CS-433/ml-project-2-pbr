@@ -2,7 +2,7 @@
 
 # Project 2
 
-**Authors**: Jiachen Lu, Yingxuan You, Shunchang Liu  
+**Authors**: Jiachen Lu (jiachen.lu@epfl.ch), Yingxuan You (yingxuan.you@epfl.ch), Shunchang Liu (shunchang.liu@epfl.ch)
 
 ## Setup
 
@@ -23,6 +23,7 @@ The ```./checkpoints``` directory structure should follow the below hierarchy:
 ```
 ${Project}  
 |-- checkpoints  
+|   |-- model_index.json
 |   |-- completion_diffusion
 |   |   |-- feature_extractor
 |   |   |   |-- preprocessor_config.json
@@ -54,24 +55,25 @@ ${Project}
 ## Quick Demo
 Run our pre-trained texture completion diffusion model using sample in examples:
 ```bash
-python demo.py --img examples/partial_uv.png --gpu 0
+python demo.py --partial_img examples/partial_color.png --mask examples/mask.png
 ```
-The output is at `./output` folder.
+The output is at `./outputs` folder.
 
 ## Test
 1. **Download the test set**:
-Download the test set with **1k** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/s!Alg46BPWJg_XgVf-q5qKdkalhgOj?e=LmGZ8n) to ```./datasets``` folder.
+Download the test set with **500** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/s!Alg46BPWJg_XgVf-q5qKdkalhgOj?e=LmGZ8n) to ```./datasets``` folder.
 2. **Evaluate the performance**:
 ```bash
 python test.py
 ```
+You will get the results on SSIM, LPIPS, PSNR:
 | Model                  | SSIM ↑ |  LPIPS ↓ |  PSNR ↑ | Log | 
 |------------------------|--------|---------|----------|--------|
-| Texture completion diffusion      | 0.488   | 0.335 | 18.22 | [log](results/logs/linear_regression_ridge1e-6_resampledata4_adam_cosan_lr5e-4_e10.log) |
+| Texture completion diffusion      | 0.488   | 0.335 | 18.22 | [log](logs/metrics.json) |
 
 ## Train
 1. **Download the training set**:
-Download the training set with **19k** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/s!Alg46BPWJg_XgVf-q5qKdkalhgOj?e=LmGZ8n) to ```./datasets``` folder.
+Download the training set with **27k** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/s!Alg46BPWJg_XgVf-q5qKdkalhgOj?e=LmGZ8n) to ```./datasets``` folder.
 2. **Training**:
 ```bash
 bash train.sh
