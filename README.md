@@ -18,7 +18,7 @@ conda activate pbr
 ```
 2. **Download the pre-trained models**:
 Download the [PBR texture VAEs](https://huggingface.co/IHe-KaiI/DressCode/tree/main/material_gen) pre-trained by [DressCode](https://github.com/IHe-KaiI/DressCode) to ```./checkpoints``` folder.
-Download our pre-trained texture completion diffusion model to ```./checkpoints``` folder.
+Download our pre-trained texture completion diffusion model([completion_diffusion.zip](https://1drv.ms/f/c/d70f26d613e83858/ErrnQtxxg6ZKjIDdLQYJu6cBMCjvf1ZvNnacwrhAE-S3UQ?e=YBaKl4)) and unzip it at ```./checkpoints``` folder.
 The ```./checkpoints``` directory structure should follow the below hierarchy:
 ```
 ${Project}  
@@ -61,7 +61,7 @@ The output is at `./outputs` folder.
 
 ## Test
 1. **Download the test set**:
-Download the test set with **500** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/s!Alg46BPWJg_XgVf-q5qKdkalhgOj?e=LmGZ8n) to ```./datasets``` folder.
+Download the test set with **500** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/c/d70f26d613e83858/ErrnQtxxg6ZKjIDdLQYJu6cBMCjvf1ZvNnacwrhAE-S3UQ?e=nd1okN) ```testset.zip``` and unzip at ```./datasets``` folder.
 2. **Evaluate the performance**:
 ```bash
 python test.py
@@ -73,7 +73,7 @@ You will get the results on SSIM, LPIPS, PSNR:
 
 ## Train
 1. **Download the training set**:
-Download the training set with **27k** paired patrial-complete PBR texture maps from [OneDrive](https://1drv.ms/f/s!Alg46BPWJg_XgVf-q5qKdkalhgOj?e=LmGZ8n) to ```./datasets``` folder.
+Download the training set with **27k** paired patrial-complete PBR texture maps [OneDrive](https://1drv.ms/f/c/d70f26d613e83858/ErrnQtxxg6ZKjIDdLQYJu6cBMCjvf1ZvNnacwrhAE-S3UQ?e=nd1okN) ```fabric_w_logo.zip``` and unzip at ```./datasets``` folder.
 2. **Training**:
 ```bash
 bash train.sh
